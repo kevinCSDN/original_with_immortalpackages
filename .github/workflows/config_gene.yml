@@ -59,7 +59,11 @@ jobs:
         cp -r /tmp/immortalwrt/package/network openwrt/package/network
         rm -rf /tmp/immortalwrt
         rm -rf openwrt/package/network/services/hostapd
+        rm -rf openwrt/package/network/services/umdns
+        rm -rf openwrt/package/network/config/netifd
+        rm -rf openwrt/package/network/config/wifi-scripts
         git checkout package/network/services/hostapd
+        git checkout package/network/servi
         
     - name: 加载自定义设置和调整配置
       run: |
