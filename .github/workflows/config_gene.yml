@@ -55,11 +55,10 @@ jobs:
         
         #替换package
         git clone https://github.com/immortalwrt/immortalwrt /tmp/immortalwrt
-        cd openwrt
-        rm -rf package/network
-        cp -r /tmp/immortalwrt/package/network
+        rm -rf openwrt/package/network
+        cp -r /tmp/immortalwrt/package/network openwrt/package/network
         rm -rf /tmp/immortalwrt
-        cd ..
+        
         
     - name: 加载自定义设置和调整配置
       run: |
