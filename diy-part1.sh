@@ -24,8 +24,8 @@ sed -i '1s|https://git.openwrt.org/feed/packages.git|https://github.com/immortal
 sed -i '2s|https://git.openwrt.org/project/luci.git|https://github.com/immortalwrt/luci.git|' feeds.conf.default
 
 ./scripts/feeds update -a && rm -rf feeds/luci/applications/luci-app-mosdns
-rm -rf feeds/packages/net/{alist,adguardhome,mosdns,xray*,v2ray*,v2ray*,sing*,smartdns}
-rm -rf feeds/packages/utils/v2dat
+#rm -rf feeds/packages/net/{alist,adguardhome,mosdns,xray*,v2ray*,v2ray*,sing*,smartdns}
+#rm -rf feeds/packages/utils/v2dat
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 ./scripts/feeds install -a 
@@ -67,11 +67,11 @@ git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 
 
 
-git clone https://github.com/haiibo/openwrt-packages
-shopt -s extglob
-rm -rf openwrt-packages/!(luci-app-netdata|luci-app-smartdns|luci-app-upnp)
-cp -r openwrt-packages/{luci-app-netdata,luci-app-smartdns,luci-app-upnp} package/
-rm -rf openwrt-packages
+#git clone https://github.com/haiibo/openwrt-packages
+#shopt -s extglob
+#rm -rf openwrt-packages/!(luci-app-netdata|luci-app-smartdns|luci-app-upnp)
+#cp -r openwrt-packages/{luci-app-netdata,luci-app-smartdns,luci-app-upnp} package/
+#rm -rf openwrt-packages
 
 #git clone https://github.com/coolsnowwolf/luci luci1
 #shopt -s extglob
@@ -94,15 +94,15 @@ rm -rf feeds/luci/themes/luci-theme-Bootstrap
 rm -rf feeds/luci/themes/luci-theme-BootstrapDark
 rm -rf feeds/luci/themes/luci-theme-BootstrapLight
 rm -rf feeds/packages/lang/golang
-git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
+#git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 
-git clone https://github.com/f8q8/luci-app-autoreboot package/luci-app-autoreboot
+#git clone https://github.com/f8q8/luci-app-autoreboot package/luci-app-autoreboot
 #git clone -b js https://github.com/sirpdboy/luci-theme-kucat.git
 #git clone -b main https://github.com/sirpdboy/luci-app-advancedplus.git
 
 
-git clone --depth=1 -b master https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
-git clone --depth=1 -b master https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+#git clone --depth=1 -b master https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+#git clone --depth=1 -b master https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 
 #git clone -b master --single-branch https://github.com/LGA1150/openwrt-fullconenat package/fullconenat
 
