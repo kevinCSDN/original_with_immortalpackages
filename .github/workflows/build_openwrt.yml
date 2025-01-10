@@ -110,7 +110,13 @@ jobs:
         cp -r /tmp/immortalwrt/package/network openwrt/package/network
         rm -rf /tmp/immortalwrt
         rm -rf openwrt/package/network/services/hostapd
+        rm -rf openwrt/package/network/services/umdns
+        rm -rf openwrt/package/network/config/netifd
+        rm -rf openwrt/package/network/config/wifi-scripts
         git checkout package/network/services/hostapd
+        git checkout package/network/services/umdns
+        git checkout package/network/config/netifd
+        git checkout package/network/config/wifi-scripts
         
     - name: cache
       if: github.event.inputs.cache == 'true' && github.event.inputs.cache != 'false'
