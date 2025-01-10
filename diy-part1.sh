@@ -93,7 +93,7 @@ rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/themes/luci-theme-Bootstrap
 rm -rf feeds/luci/themes/luci-theme-BootstrapDark
 rm -rf feeds/luci/themes/luci-theme-BootstrapLight
-rm -rf feeds/packages/lang/golang
+#rm -rf feeds/packages/lang/golang
 #git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 
 #git clone https://github.com/f8q8/luci-app-autoreboot package/luci-app-autoreboot
