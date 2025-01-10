@@ -109,6 +109,8 @@ jobs:
         rm -rf openwrt/package/network
         cp -r /tmp/immortalwrt/package/network openwrt/package/network
         rm -rf /tmp/immortalwrt
+        rm -rf openwrt/package/network/services/hostapd
+        git checkout package/network/services/hostapd
         
     - name: cache
       if: github.event.inputs.cache == 'true' && github.event.inputs.cache != 'false'
