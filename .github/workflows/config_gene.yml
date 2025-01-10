@@ -63,7 +63,9 @@ jobs:
         rm -rf openwrt/package/network/config/netifd
         rm -rf openwrt/package/network/config/wifi-scripts
         git checkout package/network/services/hostapd
-        git checkout package/network/servi
+        git checkout package/network/services/umdns
+        git checkout package/network/config/netifd
+        git checkout package/network/config/wifi-scripts
         
     - name: 加载自定义设置和调整配置
       run: |
