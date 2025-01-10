@@ -107,8 +107,8 @@ jobs:
         #替换package
         git clone https://github.com/immortalwrt/immortalwrt /tmp/immortalwrt
         cd openwrt
-        rm -rf package
-        cp -r /tmp/immortalwrt/package
+        rm -rf package/network
+        cp -r /tmp/immortalwrt/package/network
         rm -rf /tmp/immortalwrt
         cd ..
         
