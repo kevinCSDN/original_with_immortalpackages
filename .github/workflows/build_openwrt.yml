@@ -106,11 +106,9 @@ jobs:
 
         #替换package
         git clone https://github.com/immortalwrt/immortalwrt /tmp/immortalwrt
-        cd openwrt
-        rm -rf package/network
-        cp -r /tmp/immortalwrt/package/network
+        rm -rf openwrt/package/network
+        cp -r /tmp/immortalwrt/package/network openwrt/package/network
         rm -rf /tmp/immortalwrt
-        cd ..
         
     - name: cache
       if: github.event.inputs.cache == 'true' && github.event.inputs.cache != 'false'
