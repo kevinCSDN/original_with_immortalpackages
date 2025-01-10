@@ -105,12 +105,6 @@ jobs:
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
 
-    
-        git clone https://github.com/immortalwrt/immortalwrt /tmp/immortalwrt
-        rm -rf openwrt/package/network
-        cp -r /tmp/immortalwrt/package/network openwrt/package/network
-        rm -rf /tmp/immortalwrt
-
     - name: cache
       if: github.event.inputs.cache == 'true' && github.event.inputs.cache != 'false'
       uses: klever1988/cachewrtbuild@main
