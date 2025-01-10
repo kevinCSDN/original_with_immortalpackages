@@ -103,7 +103,8 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-
+        
+        rm -rf openwrt/package/network/config/firewall
         rm -rf openwrt/package/network/config/firewall4
         git clone https://github.com/fullcone-nat-nftables/openwrt-firewall4-with-fullcone package/network/config/firewall4
 
