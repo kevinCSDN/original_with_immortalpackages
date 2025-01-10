@@ -52,20 +52,29 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        
-        #替换package
+
+        mkdir -p /tmp/openwrt_backup
+        cp -r openwrt/package/network/services/hostapd /tmp/openwrt_backup/hostapd
+        cp -r openwrt/package/network/services/umdns /tmp/openwrt_backup/umdns
+        cp -r openwrt/package/network/config/netifd /tmp/openwrt_backup/netifd
+        cp -r openwrt/package/network/config/wifi-scripts /tmp/openwrt_backup/wifi-scripts
+    
         git clone https://github.com/immortalwrt/immortalwrt /tmp/immortalwrt
         rm -rf openwrt/package/network
         cp -r /tmp/immortalwrt/package/network openwrt/package/network
         rm -rf /tmp/immortalwrt
+
         rm -rf openwrt/package/network/services/hostapd
         rm -rf openwrt/package/network/services/umdns
         rm -rf openwrt/package/network/config/netifd
         rm -rf openwrt/package/network/config/wifi-scripts
-        git checkout HEAD -- package/network/services/hostapd
-        git checkout HEAD -- package/network/services/umdns
-        git checkout HEAD -- package/network/config/netifd
-        git checkout HEAD -- package/network/config/wifi-scripts
+
+        cp -r /tmp/openwrt_backup/hostapd openwrt/package/network/services/hostapd
+        cp -r /tmp/openwrt_backup/umdns openwrt/package/network/services/umdns
+        cp -r /tmp/openwrt_backup/netifd openwrt/package/network/config/netifd
+        cp -r /tmp/openwrt_backup/wifi-scripts openwrt/package/network/config/wifi-scripts
+
+        rm -rf /tmp/openwrt_backup
         
     - name: 加载自定义设置和调整配置
       run: |
