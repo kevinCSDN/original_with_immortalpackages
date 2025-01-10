@@ -103,6 +103,14 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+
+        #替换package
+        git clone https://github.com/immortalwrt/immortalwrt /tmp/immortalwrt
+        cd openwrt
+        rm -rf package
+        cp -r /tmp/immortalwrt/package
+        rm -rf /tmp/immortalwrt
+        cd ..
         
     - name: cache
       if: github.event.inputs.cache == 'true' && github.event.inputs.cache != 'false'
